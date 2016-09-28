@@ -22,7 +22,7 @@
                     });
                 },
                 cssSelectorAncestor: "#jp_container_1",
-                swfPath: "jPlayer_Scripts/jquery.jplayer.swf",
+                swfPath: "/js",
                 supplied: "m4a, oga",
                 useStateClassSkin: true,
                 autoBlur: false,
