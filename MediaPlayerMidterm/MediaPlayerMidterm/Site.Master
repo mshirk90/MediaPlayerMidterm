@@ -1,85 +1,103 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MediaPlayerMidterm.SiteMaster" %>
 
-<!DOCTYPE html>
 
-<html lang="en">
-<head runat="server">
+<!DOCTYPE HTML>
+<!--
+	Visualize by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>Visualize by TEMPLATED</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <span class="avatar">
+                <img src="images/logo.jpg" alt="" /></span>
+
+            <h1>This is a <strong>Media Player</strong>, it should be right here <a href="http://templated.co">...seriously</a><br />
+            </h1>
+
+            <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+            </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
-        </div>
-    </form>
+
+            <%--            <ul class="icons">
+                <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+                <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+            </ul>--%>
+        </header>
+
+
+        <!-- Main -->
+        <section id="main">
+
+            <%-- <!-- Thumbnails -->
+            <section class="thumbnails">
+                <div>
+                    <a href="images/fulls/01.jpg">
+                        <img src="images/thumbs/01.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                    <a href="images/fulls/02.jpg">
+                        <img src="images/thumbs/02.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="images/fulls/03.jpg">
+                        <img src="images/thumbs/03.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                    <a href="images/fulls/04.jpg">
+                        <img src="images/thumbs/04.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                    <a href="images/fulls/05.jpg">
+                        <img src="images/thumbs/05.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="images/fulls/06.jpg">
+                        <img src="images/thumbs/06.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                    <a href="images/fulls/07.jpg">
+                        <img src="images/thumbs/07.jpg" alt="" />
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </a>
+                </div>
+            </section>--%>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
 </body>
 </html>
+
