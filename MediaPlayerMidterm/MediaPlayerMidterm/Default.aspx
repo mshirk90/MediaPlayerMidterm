@@ -5,40 +5,40 @@
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server">
 
     <%--jPlayer/jQuery Header--%>
-    <link type="text/css" href="/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" />
+    <link type="text/css" href="skin/pink.flag/css/jplayer.pink.flag.min.css" rel="stylesheet" />
     <script type="text/javascript" src="Scripts/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="jPlayer_Scripts/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
 
 
 
     <script type="text/javascript">
-        $(document).ready(function () {
+               $(document).ready(function () {
             $("#jquery_jplayer_1").jPlayer({
                 ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        title: "Bubble",
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                    });
-                },
-                cssSelectorAncestor: "#jp_container_1",
-                swfPath: "/js",
-                supplied: "m4a, oga",
-                useStateClassSkin: true,
-                autoBlur: false,
-                smoothPlayBar: true,
-                keyEnabled: true,
-                remainingDuration: true,
-                toggleDuration: true
-            });
-        });
-    </script>
-    <%--End jplayer header--%>
+          $(this).jPlayer("setMedia", {
+            title: "Bubble",
+            mp3: "/UploadedMusic/"+track+".mp3"
+          });
+        },
+        cssSelectorAncestor: "#jp_container_1",
+        swfPath: "/js",
+        supplied: "mp3",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: true
+      });
+    });
+  </script>
+<%--End jplayer header--%>
 </asp:Content>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <form id="form1" runat="server">
     <%--  Create jPlayer interface--%>
     <div id="jquery_jplayer_1" class="jp-jplayer"></div>
     <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
@@ -69,7 +69,8 @@
                 </div>
             </div>
             <div class="jp-details">
-                <div class="jp-title" aria-label="title">&nbsp;</div>
+                <div class="jp-title" aria-label="title">&nbsp;
+                </div>
             </div>
             <div class="jp-no-solution">
                 <span>Update Required</span>
@@ -78,4 +79,7 @@
         </div>
     </div>
     <%--    End jPlayer interface--%>
+        <asp:FileUpload ID="fuUpload" runat="server" />
+                    <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload" Width="157px" />
+</form>
 </asp:Content>

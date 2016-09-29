@@ -2204,7 +2204,10 @@
 	input[type="button"],
 	button,
 	.button {
-		-moz-appearance: none;
+		border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    -moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
@@ -2214,12 +2217,10 @@
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		background-color: #FF6382;
 		border-radius: 4px;
-		border: 0;
 		color: !important;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 200;
-		height: 2.85em;
 		line-height: 2.95em;
 		padding: 0 1.5em;
 		text-align: center;

@@ -241,9 +241,8 @@
     <Content Include="images\thumbs\06.jpg" />
     <Content Include="images\thumbs\07.jpg" />
     <Content Include="index.html" />
-    <Content Include="jPlayer_Scripts\jquery.jplayer.js" />
-    <Content Include="jPlayer_Scripts\jquery.jplayer.min.js" />
-    <Content Include="jPlayer_Scripts\jquery.jplayer.swf" />
+    <Content Include="js\jquery.jplayer.min.js" />
+    <Content Include="js\jquery.jplayer.swf" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -434,6 +433,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BusinessObjects\Event.cs" />
+    <Compile Include="BusinessObjects\HeaderData.cs" />
+    <Compile Include="BusinessObjects\Post.cs" />
+    <Compile Include="BusinessObjects\PostList.cs" />
+    <Compile Include="BusinessObjects\SavableEventArgs.cs" />
+    <Compile Include="ConfigurationHelper\Configuration.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,6 +446,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseHelper\Database.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -478,6 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedMusic\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
