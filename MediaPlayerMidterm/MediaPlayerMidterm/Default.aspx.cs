@@ -8,6 +8,8 @@ using System.Data;
 using System.Text;
 using System.IO;
 using BusinessObjects;
+using System.Media;
+
 
 namespace MediaPlayerMidterm
 {
@@ -18,14 +20,16 @@ namespace MediaPlayerMidterm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
+           
+           
         }
 
 
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-
+            
             Post post = new Post();
 
             if (this.fuUpload.HasFile)
@@ -42,6 +46,28 @@ namespace MediaPlayerMidterm
 
 
             }
+        }
+
+        public void btnPlay_Click(object sender, EventArgs e)
+        {
+            var soundsRoot = "C:/Users/Matt/Documents/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/UploadedMusic/";
+            var rand = new Random();
+            var soundFiles = Directory.GetFiles(soundsRoot, "*.wav");
+            var playSound = soundFiles[rand.Next(0, soundFiles.Length)];
+
+           SoundPlayer player1 = new SoundPlayer(playSound);
+            player1.Play();
+        }
+
+        protected void btnSkip_Click(object sender, EventArgs e)
+        {
+            var soundsRoot = "C:/Users/Matt/Documents/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/UploadedMusic/";
+            var rand = new Random();
+            var soundFiles = Directory.GetFiles(soundsRoot, "*.wav");
+            var playSound = soundFiles[rand.Next(0, soundFiles.Length)];
+
+            SoundPlayer player1 = new SoundPlayer(playSound);
+            player1.Play();
         }
     }
 }

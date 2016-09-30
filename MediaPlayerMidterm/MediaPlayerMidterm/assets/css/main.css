@@ -1611,25 +1611,25 @@
 		text-align: center;
 	}
 
-	header p {
+	headermaster p {
 		color: rgba(255, 255, 255, 0.35);
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
 
-	header h2 + p {
+	headermaster h2 + p {
 		font-size: 1.25em;
 		margin-top: -1em;
 	}
 
-	header h3 + p {
+	headermaster h3 + p {
 		font-size: 1.1em;
 		margin-top: -0.8em;
 	}
 
-	header h4 + p,
-	header h5 + p,
-	header h6 + p {
+	headermaster h4 + p,
+	headermaster h5 + p,
+	headermaster h6 + p {
 		font-size: 0.9em;
 		margin-top: -0.6em;
 	}
@@ -2552,7 +2552,7 @@
 
 /* Wrapper */
 
-	#wrapper {
+	#wrappermaster {
 		max-width: 68em;
 		width: 100%;
 		margin: 0 auto;
@@ -2582,7 +2582,7 @@
 
 /* Header */
 
-	#header {
+	#headermaster {
 		text-align: center;
 		padding: 6em 0 4em 0;
 	}
@@ -2591,7 +2591,7 @@
 			color: rgba(255, 255, 255, 0.65);
 		}
 
-		#header .avatar {
+		#headermaster .avatar {
 			border-radius: 100%;
 			display: inline-block;
 			margin: 0 0 2em 0;
@@ -2600,7 +2600,7 @@
 			background-color: rgba(255, 255, 255, 0.075);
 		}
 
-			#header .avatar img {
+			#headermaster .avatar img {
 				border-radius: 100%;
 				display: block;
 				width: 10em;
@@ -2608,7 +2608,7 @@
 
 		@media screen and (max-width: 1280px) {
 
-			#header {
+			#headermaster {
 				padding: 4em 0 2em 0;
 			}
 
@@ -2616,12 +2616,12 @@
 
 /* Footer */
 
-	#footer {
+	#footermaster {
 		text-align: center;
 		padding: 4em 0 4em 0;
 	}
 
-		#footer:before {
+		#footermaster:before {
 			content: '';
 			border-top: solid 1px rgba(255, 255, 255, 0.25);
 			width: 10em;
@@ -2631,7 +2631,7 @@
 
 		@media screen and (max-width: 1280px) {
 
-			#footer {
+			#footermaster {
 				padding: 2em 0 2em 0;
 			}
 
