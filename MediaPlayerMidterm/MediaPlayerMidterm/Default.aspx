@@ -3,20 +3,46 @@
 
 
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server">
+
+    <p>
+        <br />
+    </p>
+
+    <p>
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
 </asp:Content>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <form id="form1" runat="server">
-<div>
+    
         <div>
-            <asp:Button ID="btnPlay" runat="server" OnClick="btnPlay_Click" Text="Play" Width="157px" />
+
             <div>
-            <asp:Button ID="btnSkip" runat="server"  Text="&gt;" Width="73px" OnClick="btnSkip_Click" />
-</div>
+                <div>
+                    <asp:Repeater ID="rptMusic" runat="server" OnItemCommand="rptMusic_ItemCommand">
+                        <ItemTemplate>
+                            <div>
+                                <a>
+                                    <div>
+                                        <div>
+                                            <asp:Label id="lblMusicPath" runat ="server" Text='<%# DataBinder.Eval(Container.DataItem, "MusicPath")  %>' Visible="false"></asp:Label>
+                                            <p><%# DataBinder.Eval(Container.DataItem, "ArtistName")  %>       <%# DataBinder.Eval(Container.DataItem, "TrackName")  %> </p>
+                                            
+                                        </div>
+                                    </div>
+                           </a> </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
         </div>
-        </div>
+
+<form id="form1" runat="server">
         <asp:FileUpload ID="fuUpload" runat="server" />
         <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload" Width="157px" />
 

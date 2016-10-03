@@ -9,6 +9,8 @@ using System.Text;
 using System.IO;
 using BusinessObjects;
 using System.Media;
+using WMPLib;
+using DatabaseHelper;
 
 
 namespace MediaPlayerMidterm
@@ -16,13 +18,18 @@ namespace MediaPlayerMidterm
     public partial class _Default : Page
     {
 
-
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-           
-           
+            PostList postList = new PostList();
+            postList = postList.GetAll();
+            rptMusic.DataSource = postList.List;
+            rptMusic.DataBind();
+
+            WindowsMediaPlayer myplayer = new WindowsMediaPlayer();
+            myplayer.URL = "/UploadedMusic";
+            myplayer.controls.play();
         }
 
 
@@ -48,26 +55,12 @@ namespace MediaPlayerMidterm
             }
         }
 
-        public void btnPlay_Click(object sender, EventArgs e)
+        public void rptMusic_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            var soundsRoot = "C:/Users/Matt/Documents/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/UploadedMusic/";
-            var rand = new Random();
-            var soundFiles = Directory.GetFiles(soundsRoot, "*.wav");
-            var playSound = soundFiles[rand.Next(0, soundFiles.Length)];
-
-           SoundPlayer player1 = new SoundPlayer(playSound);
-            player1.Play();
-        }
-
-        protected void btnSkip_Click(object sender, EventArgs e)
-        {
-            var soundsRoot = "C:/Users/Matt/Documents/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/MediaPlayerMidterm/UploadedMusic/";
-            var rand = new Random();
-            var soundFiles = Directory.GetFiles(soundsRoot, "*.wav");
-            var playSound = soundFiles[rand.Next(0, soundFiles.Length)];
-
-            SoundPlayer player1 = new SoundPlayer(playSound);
-            player1.Play();
+            Label label = (Label)this.FindControl("lblMusicPath");
+            WindowsMediaPlayer myplayer = new WindowsMediaPlayer();
+            myplayer.URL = "lblMusicPath";
+            myplayer.controls.play();
         }
     }
 }

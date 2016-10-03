@@ -13,6 +13,8 @@ namespace BusinessObjects
     {
         #region Private Members
         private String _MusicPath = string.Empty;
+        private String _ArtistName = string.Empty;
+        private String _TrackName = string.Empty;
         private String _FilePath = String.Empty;
         private String _RelativeFileName = String.Empty;
         #endregion
@@ -45,7 +47,36 @@ namespace BusinessObjects
                 }
             }
         }
-       
+        public string ArtistName
+        {
+            get { return _ArtistName; }
+            set
+            {
+                if (_ArtistName != value)
+                {
+                    _ArtistName = value;
+                    base.IsDirty = true;
+                    Boolean Savable = IsSavable();
+                    SavableEventArgs e = new SavableEventArgs(Savable);
+                    RaiseEvent(e);
+                }
+            }
+        }
+        public string TrackName
+        {
+            get { return _TrackName; }
+            set
+            {
+                if (_TrackName != value)
+                {
+                    _TrackName = value;
+                    base.IsDirty = true;
+                    Boolean Savable = IsSavable();
+                    SavableEventArgs e = new SavableEventArgs(Savable);
+                    RaiseEvent(e);
+                }
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -59,6 +90,8 @@ namespace BusinessObjects
                 database.Command.CommandType = CommandType.StoredProcedure;
                 database.Command.CommandText = "tblPostINSERT";
                 database.Command.Parameters.Add("@MusicPath", SqlDbType.VarChar).Value = _MusicPath;
+                database.Command.Parameters.Add("@ArtistName", SqlDbType.VarChar).Value = _ArtistName;
+                database.Command.Parameters.Add("@TrackName", SqlDbType.VarChar).Value = _TrackName;
 
                 // Provides the empty buckets
                 base.Initialize(database, Guid.Empty);
@@ -88,7 +121,8 @@ namespace BusinessObjects
                 database.Command.CommandType = CommandType.StoredProcedure;
                 database.Command.CommandText = "tblPostUPDATE";
                 database.Command.Parameters.Add("@MusicPath", SqlDbType.VarChar).Value = _MusicPath;
-
+                database.Command.Parameters.Add("@ArtistName", SqlDbType.VarChar).Value = _ArtistName;
+                database.Command.Parameters.Add("@TrackName", SqlDbType.VarChar).Value = _TrackName;
 
                 // Provides the empty buckets
                 base.Initialize(database, base.Id);
@@ -157,6 +191,8 @@ namespace BusinessObjects
         {
           
             _MusicPath = dr["MusicPath"].ToString();
+            _ArtistName = dr["ArtistName"].ToString();
+            _TrackName = dr["TrackName"].ToString();
             String filepath = System.IO.Path.Combine(_FilePath, Id.ToString() + ".mp3");
             _RelativeFileName = System.IO.Path.Combine("UploadedMusic", Id.ToString() + ".mp3");
 
